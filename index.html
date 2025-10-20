@@ -72,7 +72,7 @@
             max-width: 800px;
             margin: 0 auto 3rem;
             font-weight: 300;
-            line-height: 1.5;
+            line-height: 1.5; /* <-- MANTIENE EL CAMBIO ANTERIOR */
             text-align: center;
             opacity: 0;
             transform: translateY(20px);
@@ -178,12 +178,31 @@
             font-weight: 300;
         }
         
-        .event-details { text-align: center; margin-bottom: 2rem; opacity: 0; transform: translateY(20px); animation: fadeIn 1s ease forwards 1.8s; }
+        /* --- CSS MODIFICADO --- */
+        .event-details { 
+            text-align: center; 
+            margin-bottom: 2rem; 
+            opacity: 0; 
+            transform: translateY(20px); 
+            animation: fadeIn 1s ease forwards 1.8s;
+            
+            /* --- CAMBIOS AÑADIDOS --- */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem; /* Espacio uniforme entre elementos */
+        }
         
+        /* --- NUEVA REGLA AÑADIDA --- */
+        .event-info-text {
+            line-height: 1.3; /* Controla el interlineado del bloque de texto */
+        }
+
         .date, .location {
             font-family: 'Montserrat', sans-serif;
             font-weight: 300;
-            margin-bottom: 0.2rem;
+            margin-bottom: 0;
+ font-size: 0.8rem;/* --- CSS MODIFICADO --- */
         }
 
         .event-note {
@@ -192,16 +211,34 @@
             margin-top: 0.2rem;
         }
         
-        .register-btn { display: inline-block; margin-top: 1 rem; padding: 0.8rem 2rem; background-color: white; color: var(--text-color); text-decoration: none; border-radius: 50px; font-family: 'Montserrat', sans-serif; font-weight: 400; border: 1px solid var(--text-color); transition: all 0.3s ease; position: relative; overflow: hidden; z-index: 1; opacity: 0; transform: translateY(20px); animation: fadeIn 1s ease forwards 1.9s; }
+        .register-btn { 
+            display: inline-block; 
+            margin-top: 0; /* --- CSS MODIFICADO (y corregido error sintáctico '1 rem') --- */
+            padding: 0.8rem 2rem; 
+            background-color: white; 
+            color: var(--text-color); 
+            text-decoration: none; 
+            border-radius: 50px; 
+            font-family: 'Montserrat', sans-serif; 
+            font-weight: 400; 
+            border: 1px solid var(--text-color); 
+            transition: all 0.3s ease; 
+            position: relative; 
+            overflow: hidden; 
+            z-index: 1; 
+            opacity: 0; 
+            transform: translateY(20px); 
+            animation: fadeIn 1s ease forwards 1.9s; 
+        }
         .register-btn:before { content: ''; position: absolute; top: 0; left: 0; width: 0%; height: 100%; background: var(--text-color); transition: all 0.3s ease; z-index: -1; }
         .register-btn:hover { color: white; border-color: transparent; }
         .register-btn:hover:before { width: 100%; }
         
-        /* --- ESTILO PARA EL LOGO AÑADIDO --- */
+        /* --- ESTILO PARA EL LOGO AÑADIDO (Y MODIFICADO) --- */
         .footer-logo {
             display: block;
-            margin: 2.5rem auto 0;
-            width: 160px;
+            margin: 0; /* --- CSS MODIFICADO --- */
+            width: 140px; /* --- CSS MODIFICADO (tamaño ajustado) --- */
             height: auto;
             opacity: 0;
             transform: translateY(20px);
@@ -294,8 +331,11 @@
         </section>
         
         <div class="event-details">
-            <p class="date">26 de octubre 2025 - 02:55<br> La hora sin tiempo</p>
-            <p class="location">Un lugar de quietud para lxs inscritxs <br> Nada de Nada </p>
+            <div class="event-info-text"> 
+                <p class="date">26 de octubre 2025 - 02:55<br> La hora sin tiempo</p>
+                <p class="location">Un lugar de quietud para lxs inscritxs <br> Nada de Nada </p>
+            </div>
+            
             <a href="mailto:2012creadores@gmail.com?subject=Registro%20La%20Hora%20Vacía&body=Hola,%20me%20gustaría%20registrarme%20para%20la%20experiencia%20'La%20Hora%20Vacía'." class="register-btn">Inscribirse</a>
             
             <img src="nada-de-nada-centro.png" alt="Logo del organizador" class="footer-logo">
@@ -338,4 +378,3 @@
 </body>
 
 </html>
-
